@@ -1,0 +1,6 @@
+.stack-work/
+week.cabal
+*~
+.idea
+*.iml
+out
