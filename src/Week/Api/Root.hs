@@ -2,8 +2,8 @@
 {-# LANGUAGE ExtendedDefaultRules #-}
 
 
-module Week.Api.Html.Home
-    ( home
+module Week.Api.Root
+    ( root
     ) where
 
 import qualified Control.Monad.IO.Class as IO
@@ -12,7 +12,7 @@ import Servant
 import qualified Week.WeekInfo as WeekInfo
 
 
-home :: Handler WeekInfo.WeekInfo
-home = do
+root :: Handler WeekInfo.WeekInfo
+root = do
     time <- IO.liftIO Clock.getCurrentTime
     return $ WeekInfo.WeekInfo time

@@ -9,7 +9,7 @@ import qualified Data.Time.Calendar as Calendar
 import qualified Data.Time.Calendar.WeekDate as WeekDate
 import qualified Data.ByteString.Lazy.Char8 as BSL8
 import qualified Data.Aeson as Aeson
-import qualified Servant as Servant
+import qualified Servant
 import Lucid
 import Data.Aeson ((.=))
 
@@ -20,10 +20,10 @@ newtype WeekInfo = WeekInfo Clock.UTCTime
 
 
 instance ToHtml WeekInfo where
-    toHtml (WeekInfo time) =
+    toHtml weekInfo =
         let
             week =
-                getWeek (Clock.utctDay time)
+                getWeek weekInfo
         in
         doctypehtml_ $ do
             head_ $ do
@@ -38,22 +38,23 @@ instance ToHtml WeekInfo where
 
 
 instance Aeson.ToJSON WeekInfo where
-    toJSON (WeekInfo time) =
+    toJSON weekInfo =
         Aeson.object
-            [ "week" .= getWeek (Clock.utctDay time)
+            [ "week" .= getWeek weekInfo
             ]
 
 
 instance Servant.MimeRender Servant.PlainText WeekInfo where
-    mimeRender _ (WeekInfo time) =
-        BSL8.pack $ show $ getWeek (Clock.utctDay time)
+    mimeRender _ weekInfo =
+        BSL8.pack $ show $ getWeek weekInfo
 
 
-getWeek :: Calendar.Day -> Int
-getWeek day =
+getWeek :: WeekInfo -> Int
+getWeek (WeekInfo time) =
     weekOfYear
     where
-        (_, weekOfYear, _) = WeekDate.toWeekDate day
+        day =
+            Clock.utctDay time
 
-
-
+        (_, weekOfYear, _) =
+            WeekDate.toWeekDate day

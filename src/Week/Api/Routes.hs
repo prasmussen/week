@@ -6,7 +6,7 @@ module Week.Api.Routes
     , server
     ) where
 
-import qualified Week.Api.Html.Home as HomeHtml
+import qualified Week.Api.Root as Root
 import qualified Week.WeekInfo as WeekInfo
 import Servant
 import Servant.HTML.Lucid
@@ -20,7 +20,7 @@ type Api
 
 server :: Server Api
 server
-      =  HomeHtml.home
+      =  Root.root
     :<|> serveDirectoryWebApp "static"
 
 
