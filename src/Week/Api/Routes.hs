@@ -14,7 +14,7 @@ import Servant.HTML.Lucid
 
 
 type Api
-      =  HomeHtmlRoute
+      =  RootRoute
     :<|> StaticRoute
 
 
@@ -25,7 +25,7 @@ server
 
 
 
-type HomeHtmlRoute =
+type RootRoute =
     Get '[PlainText, JSON, HTML] WeekInfo.WeekInfo
 
 
