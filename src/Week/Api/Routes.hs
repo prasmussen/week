@@ -36,7 +36,7 @@ htmlServer
 
 
 type HomeHtmlRoute =
-    Get '[JSON, HTML] HomeHtml.WeekInfo
+    Get '[PlainText, JSON, HTML] HomeHtml.WeekInfo
 
 
 type StaticRoute =

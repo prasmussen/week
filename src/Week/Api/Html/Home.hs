@@ -14,6 +14,7 @@ import qualified Data.Time.Clock as Clock
 import Servant
 import Lucid
 import qualified Week.Week as Week
+import qualified Data.ByteString.Lazy.Char8 as BSL8
 import qualified Data.Aeson as Aeson
 import Data.Aeson ((.=))
 
@@ -51,3 +52,8 @@ instance Aeson.ToJSON WeekInfo where
         Aeson.object
             [ "week" .= Week.getWeek (Clock.utctDay time)
             ]
+
+
+instance MimeRender PlainText WeekInfo where
+    mimeRender _ (WeekInfo time) =
+        BSL8.pack $ show $ Week.getWeek (Clock.utctDay time)
