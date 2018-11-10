@@ -15,23 +15,14 @@ import Servant.HTML.Lucid
 
 
 type Api
-      =  HtmlApi
+      =  HomeHtmlRoute
     :<|> StaticRoute
 
 
 server :: Server Api
 server
-      =  (htmlServer)
+      =  HomeHtml.home
     :<|> serveDirectoryWebApp "static"
-
-
-type HtmlApi
-      =  HomeHtmlRoute
-
-
-htmlServer :: Server HtmlApi
-htmlServer
-      =  (HomeHtml.home)
 
 
 
