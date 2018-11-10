@@ -8,7 +8,7 @@ module Week.Api.Routes
 
 import qualified Week.Api.ApiInfo as ApiInfo
 import qualified Week.Api.Html.Home as HomeHtml
-import qualified Lucid
+import qualified Week.WeekInfo as WeekInfo
 import Servant
 import Servant.HTML.Lucid
 
@@ -27,7 +27,7 @@ server
 
 
 type HomeHtmlRoute =
-    Get '[PlainText, JSON, HTML] HomeHtml.WeekInfo
+    Get '[PlainText, JSON, HTML] WeekInfo.WeekInfo
 
 
 type StaticRoute =
