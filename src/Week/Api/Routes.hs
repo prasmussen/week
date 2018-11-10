@@ -6,7 +6,6 @@ module Week.Api.Routes
     , server
     ) where
 
-import qualified Week.Api.ApiInfo as ApiInfo
 import qualified Week.Api.Html.Home as HomeHtml
 import qualified Week.WeekInfo as WeekInfo
 import Servant
