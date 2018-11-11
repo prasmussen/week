@@ -6,6 +6,7 @@ import qualified Safe
 import qualified Text.Read as Read
 import qualified System.Environment as Env
 import qualified Data.Coerce as Coerce
+import Data.Monoid ((<>))
 
 
 main :: IO ()

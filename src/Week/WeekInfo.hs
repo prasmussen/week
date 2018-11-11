@@ -10,6 +10,7 @@ import qualified Data.Time.Calendar.WeekDate as WeekDate
 import qualified Data.ByteString.Lazy.Char8 as BSL8
 import qualified Data.Aeson as Aeson
 import qualified Servant
+import Data.Monoid ((<>))
 import Lucid
 import Data.Aeson ((.=))
 
