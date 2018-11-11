@@ -4,3 +4,4 @@ week.cabal
 .idea
 *.iml
 out
+ghcid.log

@@ -30,8 +30,13 @@ instance ToHtml WeekInfo where
                 meta_ [ charset_ "UTF-8" ]
                 meta_ [ name_ "viewport", content_ "width=device-width, initial-scale=1, shrink-to-fit=no" ]
                 title_ ("Week: " <> week)
+                link_ [ rel_ "stylesheet", type_ "text/css", href_ "/static/styles.css" ]
             body_ $ do
-                div_ [] week
+                div_ [ class_ "week" ] ("Week: " <> week)
+                div_ [ class_ "api" ] $ do
+                    h3_ "API"
+                    p_ "Plaintext: curl https://week.vevapp.no"
+                    p_ "JSON: curl https://week.vevapp.no --header \"Accept: application/json\""
 
     toHtmlRaw =
         toHtml

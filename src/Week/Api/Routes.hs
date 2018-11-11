@@ -24,7 +24,6 @@ server
     :<|> serveDirectoryWebApp "static"
 
 
-
 type RootRoute =
     Get '[PlainText, JSON, HTML] WeekInfo.WeekInfo
 

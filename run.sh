@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export LISTEN_PORT=8080
+
 lockfile="build.lock"
 
 if shlock -f "${lockfile}" -p $$; then
