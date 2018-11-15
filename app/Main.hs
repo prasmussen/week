@@ -3,16 +3,19 @@ module Main where
 import qualified Network.Wai.Handler.Warp as Warp
 import qualified Week.Api as Api
 import qualified Safe
-import qualified Text.Read as Read
+import qualified Data.Text as T
 import qualified System.Environment as Env
 import qualified Data.Coerce as Coerce
+import qualified Week.Config as Config
 
 
 main :: IO ()
 main = do
-    listenPort <- lookupSetting "LISTEN_PORT" (ListenPort 8081)
+    listenPort <- lookupSetting "LISTEN_PORT" (Config.ListenPort 8081)
+    staticPath <- lookupSetting "STATIC_PATH" (Config.StaticPath "./static")
+    let config = Config.Config { Config.staticPath = staticPath }
     putStrLn $ "Listening on port: " <> (show listenPort)
-    Warp.run (Coerce.coerce listenPort) Api.app
+    Warp.run (Coerce.coerce listenPort) (Api.app config)
 
 
 
@@ -40,20 +43,3 @@ readSetting envKey str =
                 , "» is not a valid value for the environment variable "
                 , envKey
                 ]
-
-
-newtype ListenPort = ListenPort Int
-    deriving (Show)
-
-instance Read ListenPort where
-    readsPrec _ = readMaybe ListenPort
-
-
-readMaybe :: Read b => (b -> a) -> String -> [(a, String)]
-readMaybe constructor str =
-    case Read.readMaybe str :: Read b => Maybe b of
-        Just value ->
-            [(constructor value, "")]
-
-        Nothing ->
-            []

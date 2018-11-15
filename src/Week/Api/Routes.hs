@@ -8,6 +8,7 @@ module Week.Api.Routes
 
 import qualified Week.Api.Root as Root
 import qualified Week.WeekInfo as WeekInfo
+import qualified Week.Config as Config
 import Servant
 import Servant.HTML.Lucid
 
@@ -18,10 +19,10 @@ type Api
     :<|> StaticRoute
 
 
-server :: Server Api
-server
+server :: Config.Config -> Server Api
+server config
       =  Root.root
-    :<|> serveDirectoryWebApp "static"
+    :<|> serveDirectoryWebApp (Config.staticPathStr config)
 
 
 type RootRoute =
