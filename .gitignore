@@ -5,3 +5,4 @@ week.cabal
 *.iml
 out
 ghcid.log
+result

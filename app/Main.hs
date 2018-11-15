@@ -7,6 +7,7 @@ import qualified Data.Text as T
 import qualified System.Environment as Env
 import qualified Data.Coerce as Coerce
 import qualified Week.Config as Config
+import Data.Monoid ((<>))
 
 
 main :: IO ()
