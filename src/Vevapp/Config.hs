@@ -1,4 +1,4 @@
-module Week.Config
+module Vevapp.Config
     ( Config(..)
     , ListenPort(..)
     , StaticPath(..)

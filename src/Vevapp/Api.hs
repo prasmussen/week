@@ -2,14 +2,14 @@
 {-# LANGUAGE TypeOperators #-}
 
 
-module Week.Api
+module Vevapp.Api
     ( app
     ) where
 
 
-import qualified Week.Api.Routes as Routes
-import qualified Week.Config as Config
 import qualified Servant
+import qualified Vevapp.Api.Routes as Routes
+import qualified Vevapp.Config as Config
 
 
 type AppAPI

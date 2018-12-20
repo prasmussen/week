@@ -1,13 +1,13 @@
 module Main where
 
-import qualified Network.Wai.Handler.Warp as Warp
-import qualified Week.Api as Api
-import qualified Safe
-import qualified Data.Text as T
-import qualified System.Environment as Env
 import qualified Data.Coerce as Coerce
-import qualified Week.Config as Config
 import Data.Monoid ((<>))
+import qualified Data.Text as T
+import qualified Network.Wai.Handler.Warp as Warp
+import qualified Safe
+import qualified System.Environment as Env
+import qualified Vevapp.Api as Api
+import qualified Vevapp.Config as Config
 
 
 main :: IO ()

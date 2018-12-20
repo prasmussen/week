@@ -14,7 +14,7 @@ if shlock -f "${lockfile}" -p $$; then
     rm "${lockfile}"
 
     echo "Starting..."
-    stack exec week-exe
+    stack exec week-app
 else
     echo "Already building"
 fi

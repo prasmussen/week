@@ -1,16 +1,16 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeOperators #-}
 
-module Week.Api.Routes
+module Vevapp.Api.Routes
     ( Api
     , server
     ) where
 
-import qualified Week.Api.Root as Root
-import qualified Week.WeekInfo as WeekInfo
-import qualified Week.Config as Config
 import Servant
 import Servant.HTML.Lucid
+import qualified Vevapp.Api.Root as Root
+import qualified Vevapp.Config as Config
+import qualified Vevapp.WeekInfo as WeekInfo
 
 
 

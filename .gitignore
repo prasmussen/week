@@ -1,5 +1,5 @@
 .stack-work/
-week.cabal
+week-app.cabal
 *~
 .idea
 *.iml

@@ -1,6 +1,6 @@
-name:                week
+name:                week-app
 version:             0.1.0.0
-github:              "prasmussen/week"
+github:              "prasmussen/vevapp"
 license:             BSD3
 author:              "Petter Rasmussen"
 maintainer:          "petter.rasmussen@gmail.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/prasmussen/week#readme>
+description:         Please see the README on GitHub at <https://github.com/prasmussen/vevapp/week-app#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -49,15 +49,16 @@ library:
   source-dirs: src
 
 executables:
-  week-exe:
+  week-app:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -O3
     dependencies:
-    - week
+    - week-app
 
 tests:
   week-test:
@@ -68,4 +69,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - week
+    - week-app

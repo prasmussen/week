@@ -2,7 +2,7 @@
 , servant-lucid, servant-server, stdenv, text, time, warp
 }:
 mkDerivation {
-  pname = "week";
+  pname = "week-app";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;
@@ -21,6 +21,6 @@ mkDerivation {
     time warp
   ];
   preConfigure = "hpack";
-  homepage = "https://github.com/prasmussen/week#readme";
+  homepage = "https://github.com/prasmussen/week-app#readme";
   license = stdenv.lib.licenses.bsd3;
 }

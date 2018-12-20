@@ -3,7 +3,7 @@ let
     packageOverrides = pkgs: rec {
       haskellPackages = pkgs.haskellPackages.override {
         overrides = haskellPackagesNew: haskellPackgesOld: rec {
-          week =
+          weekApp =
             pkgs.haskell.lib.overrideCabal
               ( haskellPackagesNew.callPackage ./default.nix {}
               )
@@ -18,5 +18,5 @@ let
 
   pkgs = import <nixpkgs> { inherit config; };
 in
-{ week = pkgs.haskellPackages.week;
+{ weekApp = pkgs.haskellPackages.weekApp;
 }

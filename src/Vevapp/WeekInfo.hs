@@ -1,4 +1,4 @@
-module Week.WeekInfo
+module Vevapp.WeekInfo
     ( WeekInfo(..)
     , getWeek
     ) where
